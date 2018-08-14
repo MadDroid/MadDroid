@@ -3,7 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2047
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MadDroid.Helpers", "MadDroid.Helpers\MadDroid.Helpers.csproj", "{D1C7D6A0-560D-43DA-B916-56706F1E9EDF}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D1C7D6A0-560D-43DA-B916-56706F1E9EDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1C7D6A0-560D-43DA-B916-56706F1E9EDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1C7D6A0-560D-43DA-B916-56706F1E9EDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1C7D6A0-560D-43DA-B916-56706F1E9EDF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
