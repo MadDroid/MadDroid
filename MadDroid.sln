@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.27703.2047
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MadDroid.Helpers", "MadDroid.Helpers\MadDroid.Helpers.csproj", "{D1C7D6A0-560D-43DA-B916-56706F1E9EDF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MadDroid.Extensions", "MadDroid.Extensions\MadDroid.Extensions.csproj", "{E76FF6BB-49CC-47C2-92DC-B56592310A61}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{D1C7D6A0-560D-43DA-B916-56706F1E9EDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1C7D6A0-560D-43DA-B916-56706F1E9EDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1C7D6A0-560D-43DA-B916-56706F1E9EDF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E76FF6BB-49CC-47C2-92DC-B56592310A61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E76FF6BB-49CC-47C2-92DC-B56592310A61}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E76FF6BB-49CC-47C2-92DC-B56592310A61}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E76FF6BB-49CC-47C2-92DC-B56592310A61}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
