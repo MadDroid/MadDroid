@@ -16,9 +16,16 @@ namespace MadDroid.Extensions
         /// <param name="action">The <see cref="System.Action{T1, T2}"/> delegate to perform on each element of the <see cref="System.Collections.Generic.List{T}"/></param>
         public static void ForEach<T>(this List<T> list, Action<T, int> action)
         {
+            // If the action is null...
+            if (action == null)
+                // Throw an exception
+                throw new ArgumentNullException(nameof(action));
+
+            // For each item in the list...
             for (int i = 0; i < list.Count; i++)
             {
-                action?.Invoke(list[i], i);
+                // Run the action
+                action(list[i], i);
             }
         }
 
@@ -30,7 +37,10 @@ namespace MadDroid.Extensions
         /// <returns></returns>
         public static T Random<T>(this List<T> list)
         {
+            // Crate a random instance
             Random r = new Random();
+
+            // return the random item of the list
             return list[r.Next(0, list.Count)];
         }
     }
