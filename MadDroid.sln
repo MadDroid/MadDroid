@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2047
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MadDroid.Helpers", "MadDroid.Helpers\MadDroid.Helpers.csproj", "{D1C7D6A0-560D-43DA-B916-56706F1E9EDF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MadDroid.Helpers", "MadDroid.Helpers\MadDroid.Helpers.csproj", "{D1C7D6A0-560D-43DA-B916-56706F1E9EDF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MadDroid.Tests", "MadDroid.Tests\MadDroid.Tests.csproj", "{D0EBCC64-8352-4065-9AFE-D1CD3B43D63D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{D1C7D6A0-560D-43DA-B916-56706F1E9EDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1C7D6A0-560D-43DA-B916-56706F1E9EDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1C7D6A0-560D-43DA-B916-56706F1E9EDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0EBCC64-8352-4065-9AFE-D1CD3B43D63D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0EBCC64-8352-4065-9AFE-D1CD3B43D63D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0EBCC64-8352-4065-9AFE-D1CD3B43D63D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0EBCC64-8352-4065-9AFE-D1CD3B43D63D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
