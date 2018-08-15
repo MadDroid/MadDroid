@@ -5,6 +5,9 @@ using Newtonsoft.Json.Linq;
 
 namespace MadDroid.Helpers
 {
+    /// <summary>
+    /// A helper class to serialize/deserialize json
+    /// </summary>
     public static class Json
     {
         /// <summary>
