@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
-using System.Text;
 
 namespace MadDroid.Helpers
 {
@@ -33,9 +31,6 @@ namespace MadDroid.Helpers
         /// </summary>
         /// <param name="nvc">The <see cref="NameValueCollection"/> in which the query string will be built</param>
         /// <returns>Returns the query string beginning with a ?</returns>
-        public static string ToQueryString(this NameValueCollection nvc)
-        {
-            return ToQueryString(nvc, (arg) => Uri.EscapeDataString(arg));
-        }
+        public static string ToQueryString(this NameValueCollection nvc) => ToQueryString(nvc, (arg) => Uri.EscapeDataString(arg));
     }
 }
