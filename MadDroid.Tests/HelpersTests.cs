@@ -3,6 +3,7 @@ using System.Web;
 using Xunit;
 using MadDroid.Helpers;
 using System.Threading.Tasks;
+using System.Text;
 
 namespace MadDroid.Tests
 {
@@ -22,10 +23,20 @@ namespace MadDroid.Tests
         }
 
         [Fact]
-        public static async Task WebTests()
+        public async Task WebTests()
         {
             string str = await Web.GetStringAsync("http://google.com");
             Assert.NotNull(str);
+        }
+
+        [Fact]
+        public void SingletonTests()
+        {
+            Singleton<StringBuilder>.Instance.Append("this");
+            Singleton<StringBuilder>.Instance.Append(" is");
+            Singleton<StringBuilder>.Instance.Append(" a");
+            Singleton<StringBuilder>.Instance.Append(" test");
+            Assert.Equal("this is a test", Singleton<StringBuilder>.Instance.ToString());
         }
     }
 }
