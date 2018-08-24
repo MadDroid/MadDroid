@@ -13,6 +13,8 @@ namespace MadDroid.Helpers
         /// </summary>
         /// <param name="url">The url to get the string</param>
         /// <returns></returns>
+        /// <exception cref="System.ArgumentNullException"></exception>
+        /// <exception cref="HttpRequestException"></exception>
         public static async Task<string> GetStringAsync(string url)
         {
             // Create the client
