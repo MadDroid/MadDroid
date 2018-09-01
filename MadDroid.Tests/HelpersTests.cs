@@ -1,9 +1,9 @@
-using System;
 using System.Web;
 using Xunit;
 using MadDroid.Helpers;
 using System.Threading.Tasks;
 using System.Text;
+using System.IO;
 
 namespace MadDroid.Tests
 {
@@ -37,6 +37,23 @@ namespace MadDroid.Tests
             Singleton<StringBuilder>.Instance.Append(" a");
             Singleton<StringBuilder>.Instance.Append(" test");
             Assert.Equal("this is a test", Singleton<StringBuilder>.Instance.ToString());
+        }
+
+        [Fact]
+        public async Task StorageTest()
+        {
+            var builder = new StringBuilder();
+            builder.Append("this");
+            builder.Append(" is");
+            builder.Append(" a");
+            builder.Append(" test");
+
+            string path = "myObj.json";
+            await Storage.SaveAsync(path, builder);
+
+            var newBuilder = await Storage.ReadAsync<StringBuilder>(path);
+            Assert.Equal("this is a test", newBuilder.ToString());
+            File.Delete(path);
         }
     }
 }
