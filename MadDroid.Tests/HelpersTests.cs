@@ -4,6 +4,8 @@ using MadDroid.Helpers;
 using System.Threading.Tasks;
 using System.Text;
 using System.IO;
+using System;
+using System.Linq;
 
 namespace MadDroid.Tests
 {
@@ -54,6 +56,22 @@ namespace MadDroid.Tests
             var newBuilder = await Storage.ReadAsync<StringBuilder>(path);
             Assert.Equal("this is a test", newBuilder.ToString());
             File.Delete(path);
+        }
+
+        [Fact]
+        public void ArrayExtensionsTest()
+        {
+            int[] arr = new int[849];
+            var split = arr.Split(100);
+            Assert.Equal(Math.Ceiling((double)849 / 100), split.ToArray().Length);
+        }
+
+        [Fact]
+        public void ListExtensionsTest()
+        {
+            var list = Enumerable.Range(0, 849).ToList();
+            var split = list.Split(100);
+            Assert.Equal(Math.Ceiling((double)849 / 100), split.ToArray().Length);
         }
     }
 }
