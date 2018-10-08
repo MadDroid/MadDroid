@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace MadDroid.Commnads
+namespace MadDroid.Commands
 {
     /// <summary>
     /// A basic command that run an Action
