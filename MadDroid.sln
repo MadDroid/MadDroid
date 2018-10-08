@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MadDroid.Tests", "MadDroid.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MadDroid.Commands", "MadDroid.Commands\MadDroid.Commands.csproj", "{8223AEC6-D2CF-4F60-B673-98FC79E530C9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MadDroid.DependencyInjection", "MadDroid.DependencyInjection\MadDroid.DependencyInjection.csproj", "{C9CE6B1E-3C8E-4365-82D9-3F2A11A9BDBF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{8223AEC6-D2CF-4F60-B673-98FC79E530C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8223AEC6-D2CF-4F60-B673-98FC79E530C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8223AEC6-D2CF-4F60-B673-98FC79E530C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9CE6B1E-3C8E-4365-82D9-3F2A11A9BDBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9CE6B1E-3C8E-4365-82D9-3F2A11A9BDBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9CE6B1E-3C8E-4365-82D9-3F2A11A9BDBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9CE6B1E-3C8E-4365-82D9-3F2A11A9BDBF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
