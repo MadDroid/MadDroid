@@ -6,6 +6,10 @@ using System.Text;
 using System.IO;
 using System;
 using System.Linq;
+using System.Net.Http;
+using System.Xml;
+using System.Xml.Linq;
+using System.Xml.Serialization;
 
 namespace MadDroid.Tests
 {
@@ -73,5 +77,47 @@ namespace MadDroid.Tests
             var split = list.Split(100);
             Assert.Equal(Math.Ceiling((double)849 / 100), split.ToArray().Length);
         }
+
+        [Fact]
+        public async Task XmlTestAsync()
+        {
+            string url = "https://jovemnerd.com.br/feed-nerdcast";
+            
+            using (var client = new HttpClient())
+            {
+                using (var stream = await client.GetStreamAsync(url))
+                {
+                    foreach (var item in Xml.GetElements(stream, "item"))
+                    {
+                        //foreach (var node in item.Nodes())
+                        //{
+                        //    if ((node.NodeType == XmlNodeType.Element) && (node is XElement element) && (element.Name == "guid"))
+                        //    {
+                        //        var serializer = new XmlSerializer(typeof(Item));
+                        //        var i = (Item)serializer.Deserialize(item.CreateReader());
+                        //    }
+                        //}
+
+                        var serializer = new XmlSerializer(typeof(Item));
+                        using (var itemReader = item.CreateReader())
+                        {
+                            var i = (Item)serializer.Deserialize(itemReader);
+                            Assert.NotNull(i.Title);
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    [XmlRoot("item")]
+    public class Item
+    {
+        [XmlElement(ElementName = "title")]
+        public string Title { get; set; }
+
+        [XmlElement(ElementName = "link")]
+        public string Link { get; set; }
     }
 }
