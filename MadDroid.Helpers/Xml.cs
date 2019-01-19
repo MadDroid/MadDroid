@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Xml;
 using System.Xml.Linq;
@@ -29,14 +30,11 @@ namespace MadDroid.Helpers
 
                 while (reader.Read())
                 {
-                    if (reader.NodeType == XmlNodeType.Element)
+                    while (reader.NodeType == XmlNodeType.Element && reader.Name == tagName)
                     {
-                        if (reader.Name == tagName)
+                        if (XNode.ReadFrom(reader) is XElement element)
                         {
-                            if (XNode.ReadFrom(reader) is XElement element)
-                            {
-                                yield return element;
-                            }
+                            yield return element;
                         }
                     }
                 }
