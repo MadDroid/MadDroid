@@ -7,6 +7,7 @@
     <Description>Some useful helpers</Description>
     <PackageProjectUrl>https://github.com/MadDroid/MadDroid/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/MadDroid/MadDroid/</RepositoryUrl>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
