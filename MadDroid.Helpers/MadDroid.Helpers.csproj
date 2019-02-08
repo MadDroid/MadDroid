@@ -2,6 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Mateus Becker</Authors>
+    <Company />
+    <Description>Some useful helpers</Description>
+    <PackageProjectUrl>https://github.com/MadDroid/MadDroid/</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/MadDroid/MadDroid/</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
