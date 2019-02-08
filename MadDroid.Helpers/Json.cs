@@ -30,16 +30,10 @@ namespace MadDroid.Helpers
         /// Serialize a object to json
         /// </summary>
         /// <param name="value">The object to be serialized</param>
-        /// <remarks>If DEBUG configuration is selected, the json will be indented</remarks>
+        /// <param name="formatting">Formatting option</param>
         /// <returns></returns>
-        public static async Task<string> StringifyAsync(object value)
+        public static async Task<string> StringifyAsync(object value, Formatting formatting = Formatting.None)
         {
-            // Declare the formating type
-            Formatting formatting = Formatting.None;
-#if DEBUG
-            // If DEBUG mode, set de formating type to indented
-            formatting = Formatting.Indented;
-#endif
             // Make async
             return await Task.Run<string>(() =>
             {
