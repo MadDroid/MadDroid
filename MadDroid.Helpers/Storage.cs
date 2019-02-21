@@ -14,14 +14,15 @@ namespace MadDroid.Helpers
         /// <typeparam name="T">The type of the object to be saved</typeparam>
         /// <param name="path">The path where to save the object</param>
         /// <param name="value">The object to be saved</param>
+        /// <param name="formatting">The formatting of the json</param>
         /// <returns></returns>
-        public static async Task SaveAsync<T>(string path, T value)
+        public static async Task SaveAsync<T>(string path, T value, Newtonsoft.Json.Formatting formatting = Newtonsoft.Json.Formatting.None)
         {
             // Make async
             await Task.Run(async () =>
             {
                 // Stringfy the object
-                string json = await Json.StringifyAsync(value);
+                string json = await Json.StringifyAsync(value, formatting);
                 // Write the file to disk
                 File.WriteAllText(path, json);
             });
