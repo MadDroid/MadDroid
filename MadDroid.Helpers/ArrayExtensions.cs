@@ -11,7 +11,7 @@ namespace MadDroid.Helpers
     public static class ArrayExtensions
     {
         /// <summary>
-        /// Spit an array into chunks of the specified size
+        /// Split an array into chunks of the specified size
         /// </summary>
         /// <typeparam name="T">The type of the array</typeparam>
         /// <param name="array">The array to be splited</param>

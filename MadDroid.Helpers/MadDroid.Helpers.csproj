@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -7,8 +7,18 @@
     <Description>Some useful helpers</Description>
     <PackageProjectUrl>https://github.com/MadDroid/MadDroid/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/MadDroid/MadDroid/</RepositoryUrl>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
+    <ApplicationIcon />
+    <Win32Resource />
   </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>E:\Mateus\Documents\Visual Studio 2017\Projects\MadDroid\MadDroid.Helpers\MadDroid.Helpers.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="MadDroid.Helpers.xml" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
