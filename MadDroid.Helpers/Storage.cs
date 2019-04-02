@@ -33,14 +33,35 @@ namespace MadDroid.Helpers
         /// </summary>
         /// <typeparam name="T">The type of the object that will be retrieved</typeparam>
         /// <param name="path">The path where the object is stored</param>
-        /// <returns>The default value for the type of the value parameter if the file doesn't exists</returns>
+        /// <returns>The retrieved object</returns>
+        /// <remarks>
+        ///     Returns null if the file is empty
+        /// </remarks>
+        /// <exception cref="FileNotFoundException"/>
         public static async Task<T> ReadAsync<T>(string path)
+        {
+            // Make async
+            return await Task.Run(async () => {
+                // Read the file from disk
+                string json = File.ReadAllText(path);
+                // Return the object deserialized
+                return await Json.ToObjectAsync<T>(json);
+            });
+        }
+
+        /// <summary>
+        /// Try to read an object from the specified path
+        /// </summary>
+        /// <typeparam name="T">The type of the object that will be retrieved</typeparam>
+        /// <param name="path">The path where the object is stored</param>
+        /// <returns>The object or null if the file is empty or doesn't exist</returns>
+        public static async Task<T> TryReadAsync<T>(string path)
         {
             // Make async
             return await Task.Run(async () => {
                 // Checks if the file exists
                 if (!File.Exists(path))
-                    return default(T);
+                    return default;
 
                 // Read the file from disk
                 string json = File.ReadAllText(path);
