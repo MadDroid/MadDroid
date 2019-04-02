@@ -7,11 +7,11 @@
     <Description>Some useful helpers</Description>
     <PackageProjectUrl>https://github.com/MadDroid/MadDroid/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/MadDroid/MadDroid/</RepositoryUrl>
-    <Version>1.1.0</Version>
+    <Version>1.2.0</Version>
     <ApplicationIcon />
     <Win32Resource />
-    <AssemblyVersion>1.1.0.0</AssemblyVersion>
-    <FileVersion>1.1.0.0</FileVersion>
+    <AssemblyVersion>1.2.0.0</AssemblyVersion>
+    <FileVersion>1.2.0.0</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
