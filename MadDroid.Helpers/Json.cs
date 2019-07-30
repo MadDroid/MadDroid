@@ -15,14 +15,16 @@ namespace MadDroid.Helpers
         /// </summary>
         /// <typeparam name="T">The type of the object which the json will be deserialized</typeparam>
         /// <param name="value">The json to be deserialized</param>
+        /// <param name="settings">The <see cref="JsonSerializerSettings"/> used to deserialize the object. If
+        ///                        this is null, default serialization settings will be used.</param>
         /// <returns></returns>
-        public static async Task<T> ToObjectAsync<T>(string value)
+        public static async Task<T> ToObjectAsync<T>(string value, JsonSerializerSettings settings = null)
         {
             // Make async
             return await Task.Run<T>(() =>
             {
                 // Deserialize json
-                return JsonConvert.DeserializeObject<T>(value);
+                return JsonConvert.DeserializeObject<T>(value, settings);
             });
         }
 
@@ -31,14 +33,16 @@ namespace MadDroid.Helpers
         /// </summary>
         /// <param name="value">The object to be serialized</param>
         /// <param name="formatting">Formatting option</param>
+        /// <param name="settings">The <see cref="JsonSerializerSettings"/> used to serialize the object. If this
+        ///                        is null, default serialization settings will be used.</param>
         /// <returns></returns>
-        public static async Task<string> StringifyAsync(object value, Formatting formatting = Formatting.None)
+        public static async Task<string> StringifyAsync(object value, Formatting formatting = Formatting.None, JsonSerializerSettings settings = null)
         {
             // Make async
             return await Task.Run<string>(() =>
             {
                 // Serialize object
-                return JsonConvert.SerializeObject(value, formatting);
+                return JsonConvert.SerializeObject(value, formatting, settings);
             });
         }
 
