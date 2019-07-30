@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MadDroid.Collections\MadDroid.Collections.csproj" />
     <ProjectReference Include="..\MadDroid.DependencyInjection\MadDroid.DependencyInjection.csproj" />
     <ProjectReference Include="..\MadDroid.Helpers\MadDroid.Helpers.csproj" />
   </ItemGroup>
