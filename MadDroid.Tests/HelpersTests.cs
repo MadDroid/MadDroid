@@ -10,6 +10,7 @@ using System.Net.Http;
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Serialization;
+using System.Threading;
 
 namespace MadDroid.Tests
 {
@@ -108,6 +109,49 @@ namespace MadDroid.Tests
                     }
                 }
             }
+        }
+
+        [Theory]
+        [InlineData(1024, "1 KiB")]
+        [InlineData(1048576, "1 MiB")]
+        [InlineData(33554432, "32 MiB")]
+        [InlineData(5864228747, "5.461488615 GiB")]
+        [InlineData(0, "0 B")]
+        public void ByteConversionToStringTest(ulong bytes, string expected)
+        {
+            // Set the thread culture so the current system culture don't interfere with the results
+            Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-us");
+            var converted = new ByteConversion(bytes);
+
+            Assert.Equal(expected, converted.ToString());
+        }
+
+        [Theory]
+        [InlineData(1024, Prefix.KiB, 1)]
+        [InlineData(1048576, Prefix.MB, 1.048576)]
+        [InlineData(33554432, Prefix.GiB, 0.03125)]
+        [InlineData(5864228747, Prefix.GB, 5.864228747)]
+        [InlineData(1000, Prefix.KB, 1)]
+        [InlineData(0, Prefix.MB, 0)]
+        public void ByteConversionPrefixTest(ulong bytes, Prefix prefix, double expected)
+        {
+            var converted = new ByteConversion(bytes, prefix);
+
+            Assert.Equal(expected, converted.ConvertedBytes); ;
+        }
+        [Theory]
+        [InlineData(1024, PrefixKind.Decimal, 1.024)]
+        [InlineData(1048576, PrefixKind.Binary, 1)]
+        [InlineData(1500000, PrefixKind.Decimal, 1.5)]
+        [InlineData(33554432, PrefixKind.Decimal, 33.554432)]
+        [InlineData(5864228747, PrefixKind.Binary, 5.4614886147901416)]
+        [InlineData(1000, PrefixKind.Decimal, 1)]
+        [InlineData(0, PrefixKind.Decimal, 0)]
+        public void ByteConversionKindTest(ulong bytes, PrefixKind kind, double expected)
+        {
+            var converted = new ByteConversion(bytes, kind);
+
+            Assert.Equal(expected, converted.ConvertedBytes);
         }
     }
 
