@@ -49,17 +49,47 @@ namespace MadDroid.Tests
         [Fact]
         public async Task StorageTest()
         {
+            string path = "myObj.json";
+
             var builder = new StringBuilder();
             builder.Append("this");
             builder.Append(" is");
             builder.Append(" a");
             builder.Append(" test");
 
-            string path = "myObj.json";
-            await Storage.SaveAsync(path, builder);
+            var settings = new Newtonsoft.Json.JsonSerializerSettings();
+            var formatting = Newtonsoft.Json.Formatting.Indented;
 
-            var newBuilder = await Storage.ReadAsync<StringBuilder>(path);
-            Assert.Equal("this is a test", newBuilder.ToString());
+            var value = builder.ToString();
+
+            await Assert.ThrowsAnyAsync<Exception>(() => Storage.SaveAsync(null, builder));
+
+            await Storage.SaveAsync(path, builder, formatting, settings); ;
+
+            Assert.True(File.Exists(path));
+
+            await Assert.ThrowsAnyAsync<Exception>(() => Storage.ReadAsync<StringBuilder>(null, settings));
+
+            var result = await Storage.ReadAsync<StringBuilder>(path, settings);
+
+            Assert.NotNull(result);
+            Assert.Equal(value, result.ToString());
+
+            File.Delete(path);
+
+            var saved = await Storage.TrySaveAsync(null, builder);
+
+            Assert.False(saved);
+
+            saved = await Storage.TrySaveAsync(path, builder, formatting, settings);
+
+            Assert.True(saved);
+
+            result = await Storage.TryReadAsync<StringBuilder>(path, settings);
+
+            Assert.NotNull(result);
+            Assert.Equal(value, result.ToString());
+
             File.Delete(path);
         }
 
